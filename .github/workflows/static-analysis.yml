@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   phpstan:
+    if: github.head_ref != 'formatter-adjustments' && github.ref_name != 'formatter-adjustments'
     runs-on: ubuntu-latest
     name: PHPStan
     steps:

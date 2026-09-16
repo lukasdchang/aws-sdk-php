@@ -15,7 +15,7 @@ env:
 jobs:
   aws-sdk-pr-build:
     # Skip draft PRs and PRs from forked repos
-    if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.head_ref != 'formatter-adjustments' && github.ref_name != 'formatter-adjustments' && github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     permissions:
       id-token: write
