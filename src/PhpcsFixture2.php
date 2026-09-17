@@ -11,9 +11,10 @@ class PhpcsFixture
     public function __construct(array $items = [])
     {
         foreach ($items as $item) {
-            $this->addItem($item['name'],$item['count'] ?? 1);
+            $this->addItem($item['name'], $item['count'] ?? 1);
         }
     }
+
 
     public function addItem(string $name, int $count = 1): void
     {
@@ -56,7 +57,7 @@ class PhpcsFixture
 
     public function remove(string $name): void
     {
-        $this->items = array_values(array_filter($this->items,function (array $item) use ($name): bool {
+        $this->items = array_values(array_filter($this->items, function (array $item) use ($name): bool {
             return $item['name'] !== $name;
         }));
     }
@@ -79,7 +80,7 @@ class PhpcsFixture
     public function hasLargeItem(): bool
     {
         foreach ($this->items as $item) {
-            if ($item['count']> 10) {
+            if ($item['count'] > 10) {
                 return true;
             }
         }
@@ -99,7 +100,7 @@ class PhpcsFixture
     public function merge(array $items): void
     {
         foreach ($items as $item) {
-            $this->addItem($item['name'] ?? 'unknown', $item['count']?? 1);
+            $this->addItem($item['name'] ?? 'unknown', $item['count'] ?? 1);
         }
     }
 
@@ -118,7 +119,7 @@ class PhpcsFixture
     {
         return array_values(array_filter(
             $this->items,
-            fn (array $item): bool => $item['count'] >=$minimum
+            fn (array $item): bool => $item['count'] >= $minimum
         ));
     }
 }
