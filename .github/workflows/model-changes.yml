@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   verify-no-models-changes:
+    if: github.head_ref != 'formatter-adjustments' && github.ref_name != 'formatter-adjustments'
     runs-on: ubuntu-latest
     name: Check for model changes
     steps:

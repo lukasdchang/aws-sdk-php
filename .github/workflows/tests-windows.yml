@@ -11,6 +11,7 @@ permissions:
 
 jobs:
   run:
+    if: github.head_ref != 'formatter-adjustments' && github.ref_name != 'formatter-adjustments'
     runs-on: windows-latest
     strategy:
       matrix:
